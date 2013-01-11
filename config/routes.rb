@@ -7,6 +7,8 @@ Buydonate::Application.routes.draw do
 
   resources :merchants
 
+  root to: 'merchants#index'
+
   match '/about',	to: 'static_pages#about'
   match '/privacy',	to: 'static_pages#privacy'
 end

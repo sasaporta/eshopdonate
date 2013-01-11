@@ -4,6 +4,7 @@ class MerchantsController < ApplicationController
   end
 
   def index
+    redirect_to charities_path if session[:charity].nil?
     @merchants = Merchant.paginate(page: params[:page])
   end
 end

@@ -1,0 +1,16 @@
+<% provide(:title, 'Select a charity') %>
+<h1>Select a charity</h1>
+When you make eligible purchases from BuyDonate.com's merchants, the charity of your choice will receive a donation. Which charity would you like to support?
+
+<%= will_paginate %>
+
+<ul class="charities">
+  <% @charities.each do |charity| %>
+    <li>
+      <%= link_to charity.url, set_charity_path(charity) %><br />
+      <%= link_to "View website", charity.url, target: "_blank" %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

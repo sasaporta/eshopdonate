@@ -1,0 +1,26 @@
+<% provide(:title, 'All merchants') %>
+<h1>All merchants</h1>
+Thank you for helping <%= session[:charity] %><br />
+
+<%= will_paginate %>
+
+<ul class="merchants">
+  <% @merchants.each do |merchant| %>
+    <li>
+      <%= merchant.name %><br />
+      <%= link_to merchant.url, merchant %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+"app/views/charities/index.html.erb" 15L, 278C                1,1           All
+

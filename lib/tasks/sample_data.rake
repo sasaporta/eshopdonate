@@ -5,7 +5,8 @@ namespace :db do
       Charity.create!(name: "Sample Charity #{n+1}",
                       url: "http://sample-charity-#{n+1}.org")
       Merchant.create!(name: "Sample Merchant #{n+1}",
-                       url: "http://sample-merchant-#{n+1}.com")
+                       url: "http://sample-merchant-#{n+1}.com",
+                       percentage: ((n+1)/10))
     end
   end
 end

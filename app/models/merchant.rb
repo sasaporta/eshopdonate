@@ -1,3 +1,3 @@
 class Merchant < ActiveRecord::Base
-  attr_accessible :name, :url
+  attr_accessible :name, :url, :percentage
 end

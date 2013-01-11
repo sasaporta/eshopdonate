@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BuyDonate.com | <%= yield(:title) %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>BuyDonate.com | <%= yield(:title) %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Shop", merchants_path %></li>
+              <li><%= link_to "Charities", charities_path %></li>
+              <li><%= link_to "About", about_path %></li>
+              <li><%= link_to "Privacy", privacy_path %></li>
+              <li><%= link_to "Contact", contact_path %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="container" style="padding-top: 50px;">
+      <%= yield %>
+    </div>
+  </body>
 </html>

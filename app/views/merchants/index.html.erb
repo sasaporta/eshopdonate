@@ -11,7 +11,10 @@
 <ul class="merchants">
   <% @merchants.each do |merchant| %>
     <li>
-      <%= link_to "Shop now", merchant.url, class: "btn btn-primary", onclick: "var w = window.open(this.href); w.focus(); return false;" %> <%= merchant.name %> - up to <%= merchant.percentage %>% donation<br />
+      <%= "<a href='#{merchant.link}', onclick='var w = window.open(this.href); w.focus(); return false;'>
+            <img alt='#{merchant.img_alt}' border='0' src='#{merchant.img_url}' />
+            </a><img border='0' width='1' height='1' src='#{merchant.tracking_img}' />".html_safe %>
+      Up to <%= merchant.percentage %>% donation
     </li>
   <% end %>
 </ul>

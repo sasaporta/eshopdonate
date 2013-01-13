@@ -11,9 +11,8 @@
 <ul class="merchants">
   <% @merchants.each do |merchant| %>
     <li>
-      <%= "<a href='#{merchant.link}', onclick='var w = window.open(this.href); w.focus(); return false;'>
-            <img alt='#{merchant.img_alt}' border='0' src='#{merchant.img_url}' />
-            </a><img border='0' width='1' height='1' src='#{merchant.tracking_img}' />".html_safe %>
+      <%= link_to image_tag(merchant.img_url, alt: merchant.img_alt, border: "0"), shop_merchant_path(merchant), target: "_blank", onclick: "//var w = window.open(this.href); //w.focus(); //return false;" %>
+      <%= image_tag(merchant.tracking_img, alt: "", border: "0", width: "1", height: "1") %>
       Up to <%= merchant.percentage %>% donation
     </li>
   <% end %>

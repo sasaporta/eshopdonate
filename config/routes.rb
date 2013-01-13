@@ -5,7 +5,11 @@ Buydonate::Application.routes.draw do
     end
   end
 
-  resources :merchants
+  resources :merchants do
+    member do
+      get 'shop'
+    end
+  end
 
   root to: 'merchants#index'
 

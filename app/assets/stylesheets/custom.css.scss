@@ -13,15 +13,14 @@
   }
 }
 
-/* charities index */
-
 .charities {
   @include list;
 }
-
-/* merchants index */
 
 .merchants {
   @include list;
 }
 
+.shop-link {
+  font-size: 150%;
+}

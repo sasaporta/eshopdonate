@@ -9,8 +9,8 @@ When you make eligible purchases from BuyDonate.com's merchants, the charity of 
 <ul class="charities">
   <% @charities.each do |charity| %>
     <li>
-      <%= link_to charity.url, set_charity_path(charity) %><br />
-      <%= link_to "View website", charity.url, target: "_blank" %>
+      <%= link_to charity.name, set_charity_path(charity), class: "btn charity-btn" %>
+      <%= link_to "View website", charity.url, target: "_blank", class: "charity-url" %>
     </li>
   <% end %>
 </ul>

@@ -8,6 +8,7 @@ class ContactFormsController < ApplicationController
     if @contact_form.valid?                                                                                                                                                                   
       ContactMailer.contact_email(@contact_form).deliver
     else
+      # todo - can we refactor this to work without respond_to?
       respond_to do |format|
         format.html { render :action => "new" }
         format.json { render :json => @contact_form.errors, :status => :unprocessable_entity }

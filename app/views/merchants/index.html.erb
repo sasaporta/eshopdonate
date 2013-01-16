@@ -1,9 +1,8 @@
 <% provide(:title, 'All merchants') %>
 <% if (session[:charity].nil?) || (session[:charity] == "0") %>
-  Your purchase can benefit the charity of your choice. <%= link_to "Select a charity", charities_path %> to get started.
+  <%= render "no_charity_selected" %>
 <% else %>
-  When you make eligible purchases from these merchants, <%= charity = Charity.find(session[:charity]).name %> will receive a donation.<br />
-  <%= link_to "Select a different charity", charities_path %>
+  <%= render "charity_selected" %>
 <% end %>
 
 <%= will_paginate %>
@@ -11,7 +10,7 @@
 <ul class="merchants">
   <% @merchants.each do |merchant| %>
     <li>
-      <%= link_to image_tag(merchant.img_url, alt: merchant.img_alt, border: "0"), shop_merchant_path(merchant), target: "_blank", onclick: "//var w = window.open(this.href); //w.focus(); //return false;" %>
+      <%= link_to image_tag(merchant.img_url, alt: merchant.img_alt, border: "0"), shop_merchant_path(merchant), target: "_blank" %>
       <%= image_tag(merchant.tracking_img, alt: "", border: "0", width: "1", height: "1") %>
       Up to <%= merchant.percentage %>% donation
     </li>

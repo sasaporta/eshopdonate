@@ -1,0 +1,2 @@
+module ContactFormsControllerHelper
+end

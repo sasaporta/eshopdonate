@@ -4,6 +4,14 @@ class ContactFormsController < ApplicationController
   end
 
   def create
-    ContactMailer.contact_email.deliver    
+    @contact_form = ContactForm.new(params[:contact_form])
+    if @contact_form.valid?                                                                                                                                                                   
+      ContactMailer.contact_email(@contact_form).deliver
+    else
+      respond_to do |format|
+        format.html { render :action => "new" }
+        format.json { render :json => @contact_form.errors, :status => :unprocessable_entity }
+      end
+    end
   end
 end

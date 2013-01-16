@@ -1,12 +1,15 @@
 FactoryGirl.define do
-
   factory :charity do
-    name	"Youth Orchestras of Essex County"
-    url		"http://yoec.org"
+    sequence(:name)  { |n| "Sample Charity #{n}" }
+    sequence(:url) { |n| "http://sample_charity_#{n}.com" }
   end
 
   factory :merchant do
-    name	"Gap"
-    link	"http://gap.com"
+    sequence(:name)  { |n| "Sample Merchant #{n}" }
+    sequence(:link) { |n| "http://sample_merchant_#{n}.com" }
+    sequence(:percentage) { |n| n }
+    img_url "http://stevesaporta.com/sample_charity_logo.png"
+    sequence(:img_alt) { |n| "Sample Merchant #{n}" }
+    tracking_img "http://stevesaporta.com/sample_charity_logo.png"
   end
 end

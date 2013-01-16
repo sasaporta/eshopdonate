@@ -1,7 +1,6 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
-
     Charity.create!(name: "Youth Orchestras of Essex County",
                     url: "http://yoec.org")
 
@@ -13,7 +12,6 @@ namespace :db do
                      percentage: 10)
 
     100.times do |n|
-
       Charity.create!(name: "Sample Charity #{n+1}",
                       url: "http://sample-charity-#{n+1}.org")
 

@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe ContactForm do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should respond_to(:name) }
+  it { should respond_to(:email) }
+  it { should respond_to(:subject) }
+  it { should respond_to(:body) }
 end

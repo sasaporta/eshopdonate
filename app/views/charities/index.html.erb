@@ -6,6 +6,10 @@ When you make eligible purchases from BuyDonate.com's merchants, the charity of 
 
 <%= will_paginate %>
 
+<% if user_signed_in? %>
+  <%= link_to "New Charity", new_charity_path %><br /><br />
+<% end %>
+
 <ul class="charities">
   <% @charities.each do |charity| %>
     <li>

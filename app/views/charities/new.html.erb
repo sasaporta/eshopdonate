@@ -1,11 +1,11 @@
-<% provide(:title, 'Edit Charity') %>
+<% provide(:title, 'New Charity') %>
 <%= form_for(@charity) do |f| %>
   <% if @charity.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@charity.errors.count, "error") %> prevented this charity from being saved:</h2>
 
       <ul>
-      <% @charity.errors.full_messages.each do |msg| %>
+      <% @contact_form.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

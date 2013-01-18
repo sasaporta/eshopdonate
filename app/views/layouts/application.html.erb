@@ -9,6 +9,9 @@
   <body>
     <%= render "layouts/header" %>
     <div class="container" style="padding-top: 50px;">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
       <% if !notice.nil? %>
         <p class="notice"><%= notice %></p>
       <% end %>

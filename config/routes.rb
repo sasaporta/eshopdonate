@@ -1,4 +1,6 @@
 Buydonate::Application.routes.draw do
+  devise_for :users
+
   resources :charities do
     member do
       get 'set'

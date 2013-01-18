@@ -11,6 +11,10 @@ When you make eligible purchases from BuyDonate.com's merchants, the charity of 
     <li>
       <%= link_to charity.name, set_charity_path(charity), class: "btn charity-btn" %>
       <%= link_to "View website", charity.url, target: "_blank", class: "charity-url" %>
+      <% if user_signed_in? %>
+        <%= link_to "Edit", edit_charity_path(charity), class: "charity-url" %>
+        <%= link_to "Delete", charity_path(charity), method: :delete, confirm: "Delete #{charity.name}?", class: "charity-url" %>
+      <% end %>
     </li>
   <% end %>
 </ul>

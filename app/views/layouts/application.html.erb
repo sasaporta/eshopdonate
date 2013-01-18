@@ -9,9 +9,13 @@
   <body>
     <%= render "layouts/header" %>
     <div class="container" style="padding-top: 50px;">
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-        <%= yield %>
+      <% if !notice.nil? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if !alert.nil? %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
     </div>
   </body>
 </html>

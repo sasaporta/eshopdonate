@@ -7,12 +7,20 @@
 
 <%= will_paginate %>
 
+<% if user_signed_in? %>
+  <%= link_to "New Merchant", new_merchant_path %><br /><br />
+<% end %>
+
 <ul class="merchants">
   <% @merchants.each do |merchant| %>
     <li>
       <%= link_to image_tag(merchant.img_url, alt: merchant.img_alt, border: "0"), shop_merchant_path(merchant), target: "_blank" %>
       <%= image_tag(merchant.tracking_img, alt: "", border: "0", width: "1", height: "1") %>
-      Up to <%= merchant.percentage %>% donation
+      <span class="donation-percentage-text">Up to <%= merchant.percentage.round(2) %>% donation</span>
+      <% if user_signed_in? %>
+        <%= link_to "Edit", edit_merchant_path(merchant), class: "subtle-link" %>
+        <%= link_to "Delete", merchant_path(merchant), method: :delete, confirm: "Delete #{merchant.name}?", class: "subtle-link" %>
+      <% end %>
     </li>
   <% end %>
 </ul>

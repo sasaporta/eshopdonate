@@ -1,27 +1,3 @@
 <% provide(:title, 'New Charity') %>
-<%= form_for(@charity) do |f| %>
-  <% if @charity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@charity.errors.count, "error") %> prevented this charity from being saved:</h2>
-
-      <ul>
-      <% @contact_form.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "charity-field" %>
-  </div>
-  <div class="field">
-    <%= f.label :url %>
-    <%= f.text_field :url, class: "charity-field" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Save" %>
-  </div>
-<% end %>
-
+<h1>New Charity</h1>
+<%= render "form" %>

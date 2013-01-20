@@ -40,7 +40,7 @@ class CharitiesController < ApplicationController
 
   def destroy
     Charity.find(params[:id]).delete
-    redirect_to charities_path and return
+    redirect_to charities_path
   end
 
   private

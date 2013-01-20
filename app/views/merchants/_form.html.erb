@@ -1,0 +1,42 @@
+<%= form_for(@merchant) do |f| %>
+  <% if @merchant.errors.any? %>
+    <div id="error_explanation" class="alert">
+      <h2><%= pluralize(@merchant.errors.count, "error") %> prevented this merchant from being saved:</h2>
+
+      <ul>
+      <% @merchant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "merchant-field" %>
+  </div>
+  <div class="field">
+    <%= f.label :link %>
+    <%= f.text_field :link, class: "merchant-field" %>
+  </div>
+  <div class="field">
+    <%= f.label :img_url %>
+    <%= f.text_field :img_url, class: "merchant-field" %>
+  </div>
+  <div class="field">
+    <%= f.label :img_alt %>
+    <%= f.text_field :img_alt, class: "merchant-field" %>
+  </div>
+  <div class="field">
+    <%= f.label :tracking_img %>
+    <%= f.text_field :tracking_img, class: "merchant-field" %>
+  </div>
+  <div class="field">
+    <%= f.label :percentage %>
+    <%= f.text_field :percentage, class: "merchant-field" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save" %>
+    <%= link_to "Cancel", charities_path, class: "cancel-link" %>
+  </div>
+<% end %>

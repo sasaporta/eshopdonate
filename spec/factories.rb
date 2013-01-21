@@ -12,4 +12,9 @@ FactoryGirl.define do
     sequence(:img_alt) { |n| "Sample Merchant #{n}" }
     tracking_img "http://stevesaporta.com/sample_charity_logo.png"
   end
+
+  factory :user do
+    email "admin@example.com"
+    password "abcd1234"
+  end
 end

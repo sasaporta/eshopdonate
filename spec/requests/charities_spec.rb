@@ -2,21 +2,22 @@ require 'spec_helper'
 
 describe "Charities" do
 
+  before(:all) {
+    FactoryGirl.reload
+    31.times { FactoryGirl.create(:charity) }
+  }
+
+  before { visit charities_path }
+
+  after(:all)  { Charity.delete_all }
+
   describe "Index" do
 
-    before(:all) {
-      FactoryGirl.reload
-      31.times { FactoryGirl.create(:charity) }
-    }
-    after(:all)  { Charity.delete_all }
-
     it "should display Sample Charity 1" do
-      visit charities_path
       page.should have_content("Sample Charity 1")
     end
 
     it "should have a link to Sample Charity 1's website" do
-      visit charities_path
       page.should have_selector("a", text: "View website", href: "http://sample-charity-1.org")
     end
 
@@ -26,15 +27,46 @@ describe "Charities" do
     end
 
     it "should allow skipping to the list of merchants without selecting a charity" do
-      visit charities_path
       click_link "Skip this. I just want to shop without selecting a charity."
       page.should have_content("Your purchase can benefit the charity of your choice")
     end
 
     it "should allow selecting a charity" do
-      visit charities_path
       click_link "Sample Charity 1"
       page.should have_content("Sample Charity 1 will receive a donation")
     end
+
+    it "should not display Edit or Delete links before signin" do
+      page.should_not have_link("Edit")
+      page.should_not have_link("Delete")
+    end
   end
+
+  describe "Admin" do
+    before { sign_in }
+
+    it "should display Edit and Delete links" do
+      page.should have_link("Edit")
+      page.should have_link("Delete")
+    end
+
+    it "opens the Edit Charity page" do
+      edit_first_charity
+      page.should have_selector("input", id: "charity_name", value: "Sample Charity 1")
+    end
+
+    it "saves changes to a charity" do
+      edit_first_charity
+      fill_in "charity_name", with: "Sample Charity 1a"
+      fill_in "charity_url", with: "http://sample-charity-1a.org"
+      click_button "Save"
+      edit_first_charity
+      page.should have_selector("input", id: "charity_name", value: "Sample Charity 1a")
+      page.should have_selector("input", id: "charity_url", value: "http://sample-charity-1a.org")
+    end
+  end
+end
+
+def edit_first_charity
+  find(:xpath, "//a[contains(@href, '/charities/#{Charity.first.id}/edit')]").click
 end

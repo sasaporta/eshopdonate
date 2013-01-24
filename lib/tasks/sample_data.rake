@@ -17,9 +17,9 @@ namespace :db do
 
       Merchant.create!(name: "Sample Merchant #{n+1}",
                        link: "http://sample-merchant-#{n+1}.com",
-                       img_url: "http://stevesaporta.com/sample_charity_logo.png",
+                       img_url: "http://stevesaporta.com/sample_merchant_logo.png",
                        img_alt: "Sample Merchant #{n+1}",
-                       tracking_img: "http://stevesaporta.com/sample_charity_logo.png",
+                       tracking_img: "http://stevesaporta.com/sample_merchant_logo.png",
                        percentage: ((n+1)/10))
     end
   end

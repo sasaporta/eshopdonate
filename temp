@@ -12,6 +12,12 @@
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
+      <% if !notice.nil? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if !alert.nil? %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
       <%= yield %>
     </div>
   </body>

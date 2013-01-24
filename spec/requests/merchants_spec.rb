@@ -59,15 +59,15 @@ describe "Merchants" do
       fill_in "merchant_name", with: "Sample Merchant 1a"
       fill_in "merchant_link", with: "http://sample-merchant-1a.com"
       fill_in "merchant_percentage", with: "1.23"
-      fill_in "merchant_img_url", with: "http://stevesaporta.com/sample_charity_logo-a.png"
+      fill_in "merchant_img_url", with: "http://stevesaporta.com/sample_merchant_logo-a.png"
       fill_in "merchant_img_alt", with: "Sample Merchant 1a"
-      fill_in "merchant_tracking_img", with: "http://stevesaporta.com/sample_charity_logo-a.png"
+      fill_in "merchant_tracking_img", with: "http://stevesaporta.com/sample_merchant_logo-a.png"
       click_button "Save"
       edit_first_merchant
       page.should have_xpath("//input[@value='Sample Merchant 1a']")
       page.should have_xpath("//input[@value='http://sample-merchant-1a.com']")
       page.should have_xpath("//input[@value='1.23']")
-      page.should have_xpath("//input[@value='http://stevesaporta.com/sample_charity_logo-a.png']")
+      page.should have_xpath("//input[@value='http://stevesaporta.com/sample_merchant_logo-a.png']")
     end
 
     it "deletes a merchant" do

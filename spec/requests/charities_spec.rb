@@ -61,8 +61,12 @@ describe "Charities" do
       fill_in "charity_url", with: "http://sample-charity-1a.org"
       click_button "Save"
       edit_first_charity
-      page.should have_selector("input", id: "charity_name", value: "Sample Charity 1a")
-      page.should have_selector("input", id: "charity_url", value: "http://sample-charity-1a.org")
+      page.should have_xpath("//input[@value='Sample Charity 1a']")
+      page.should have_xpath("//input[@value='http://sample-charity-1a.org']")
+    end
+
+    it "deletes a charity" do
+      expect { find(:xpath, "//a[contains(@data-confirm, 'Delete Sample Charity 1')]").click }.to change(Charity, :count).by(-1)
     end
   end
 end

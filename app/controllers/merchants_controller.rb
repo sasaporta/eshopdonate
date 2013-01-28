@@ -8,9 +8,10 @@ class MerchantsController < ApplicationController
 
   def shop
     @merchant = Merchant.find(params[:id])
-    @impression = Impression.new(link: @merchant.link)
+    @link = @merchant.link + "&u1=" + session[:charity]
+    @impression = Impression.new(link: @link)
     @impression.save
-    redirect_to @merchant.link
+    redirect_to @link
   end
 
   def edit

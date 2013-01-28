@@ -23,7 +23,7 @@ class MerchantsController < ApplicationController
   end
 
   def create()
-    @merchant = Merchant.new(params[:charity])
+    @merchant = Merchant.new(params[:merchant])
     if @merchant.save
       flash[:success] = "New merchant added"
       redirect_to merchants_path

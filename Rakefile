@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Buydonate::Application.load_tasks
+EShopDonate::Application.load_tasks

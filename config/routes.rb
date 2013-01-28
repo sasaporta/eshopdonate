@@ -1,4 +1,4 @@
-Buydonate::Application.routes.draw do
+EShopDonate::Application.routes.draw do
   devise_for :users
 
   resources :charities do

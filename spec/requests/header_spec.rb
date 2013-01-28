@@ -24,6 +24,14 @@ describe "Header" do
     page.should have_selector("title", text: "Select a Charity")
   end
 
+  describe "logo" do
+    it "should link to the home page" do
+      click_link "About"
+      click_link "eShopDonate.com"
+      page.should have_selector("title", text: "Select a Charity")
+    end
+  end
+
   describe "link to the Merchants page" do
     before do
       FactoryGirl.reload

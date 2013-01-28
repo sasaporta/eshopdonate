@@ -1,6 +1,6 @@
 class ContactMailer < ActionMailer::Base
   # todo - don't hardcode "fron" adress
-  default from: "contact@buydonate.com"
+  default from: "contact@eshopdonate.com"
 
   def contact_email(contact_form)
     @contact_form = contact_form

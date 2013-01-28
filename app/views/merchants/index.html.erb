@@ -5,11 +5,13 @@
   <%= render "charity_selected" %>
 <% end %>
 
-<%= will_paginate %>
-
 <% if user_signed_in? %>
+  <br />
+  <br />
   <%= link_to "New Merchant", new_merchant_path %><br /><br />
 <% end %>
+
+<%= will_paginate %>
 
 <ul class="merchants">
   <% @merchants.each do |merchant| %>

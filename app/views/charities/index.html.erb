@@ -4,11 +4,13 @@ When you make eligible purchases from eShopDonate.com's merchants, the charity o
 
 <%= link_to "Skip this. I just want to shop without selecting a charity.", set_charity_path(0) %>
 
-<%= will_paginate %>
-
 <% if user_signed_in? %>
+  <br />
+  <br />
   <%= link_to "New Charity", new_charity_path %><br /><br />
 <% end %>
+
+<%= will_paginate %>
 
 <ul class="charities">
   <% @charities.each do |charity| %>

@@ -2,7 +2,12 @@ class MerchantsController < ApplicationController
   before_filter :signed_in_user, except: [:index, :shop]
 
   def index
-    redirect_to charities_path if session[:charity].nil?
+    (redirect_to charities_path and return) if session[:charity].nil?
+    if session[:charity].nil? || session[:charity] == "0" # check again for nil for the sake of Rspec tests
+      @amazon_tracking_id = "esd-none-20"
+    else
+      @amazon_tracking_id = Charity.find(session[:charity]).amazon_tracking_id
+    end
     @merchants = Merchant.paginate(page: params[:page])
   end
 

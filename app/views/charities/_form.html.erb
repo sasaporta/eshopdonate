@@ -19,6 +19,10 @@
     <%= f.label :url %>
     <%= f.text_field :url, class: "charity-field" %>
   </div>
+  <div class="field">
+    <%= f.label :amazon_tracking_id %>
+    <%= f.text_field :amazon_tracking_id, class: "charity-field" %>
+  </div>
   <div class="actions">
     <%= f.submit "Save" %>
     <%= link_to "Cancel", charities_path, class: "cancel-link" %>

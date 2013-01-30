@@ -34,6 +34,11 @@ describe "Merchants" do
     it "should allow selecting a different charity" do
       page.should have_link("Select a different charity")
     end
+
+    it "should display the Amazon banner with the charity's Amazon tracking ID" do
+      page.should have_xpath("//a[contains(@href, 'amazon.com')]")
+      page.should have_xpath("//a[contains(@href, Charity.first.amazon_tracking_id)]")
+    end
   end
 
   describe "Admin" do

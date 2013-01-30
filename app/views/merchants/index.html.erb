@@ -11,6 +11,12 @@
   <%= link_to "New Merchant", new_merchant_path %><br /><br />
 <% end %>
 
+<br />
+<br />
+<a target="_blank"  href=="http://amazon.com/?_encoding=UTF8&camp=1789&creative=9325&linkCode=ur2&tag=<%= @amazon_tracking_id %>" class="btn btn-primary btn-large"><i class="icon-white icon-hand-right"></i> Amazon.com</a>
+<img src="http://www.assoc-amazon.com/e/ir?t=<%= @amazon_tracking_id %>&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+Up to 2.0% donation
+
 <%= will_paginate %>
 
 <ul class="merchants">

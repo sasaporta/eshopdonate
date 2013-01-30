@@ -59,10 +59,12 @@ describe "Charities" do
       edit_first_charity
       fill_in "charity_name", with: "Sample Charity 1a"
       fill_in "charity_url", with: "http://sample-charity-1a.org"
+      fill_in "charity_amazon_tracking_id", with: "esd-sc1a-20"
       click_button "Save"
       edit_first_charity
       page.should have_xpath("//input[@value='Sample Charity 1a']")
       page.should have_xpath("//input[@value='http://sample-charity-1a.org']")
+      page.should have_xpath("//input[@value='esd-sc1a-20']")
     end
 
     it "deletes a charity" do

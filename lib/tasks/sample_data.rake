@@ -2,7 +2,8 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     Charity.create!(name: "Youth Orchestras of Essex County",
-                    url: "http://yoec.org")
+                    url: "http://yoec.org",
+                    amazon_tracking_id: "esd-yoec-20")
 
     Merchant.create!(name: "Flower.com",
                      link: "http://click.linksynergy.com/fs-bin/click?id=vzTM3hghpIE&offerid=102910.10000002&type=4&subid=0",
@@ -13,7 +14,8 @@ namespace :db do
 
     100.times do |n|
       Charity.create!(name: "Sample Charity #{n+1}",
-                      url: "http://sample-charity-#{n+1}.org")
+                      url: "http://sample-charity-#{n+1}.org",
+                      amazon_tracking_id: "esd-#{n+1}-20")
 
       Merchant.create!(name: "Sample Merchant #{n+1}",
                        link: "http://sample-merchant-#{n+1}.com",

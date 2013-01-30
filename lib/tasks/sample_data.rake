@@ -5,14 +5,14 @@ namespace :db do
                     url: "http://yoec.org",
                     amazon_tracking_id: "esd-yoec-20")
 
-    Merchant.create!(name: "Flower.com",
-                     link: "http://click.linksynergy.com/fs-bin/click?id=vzTM3hghpIE&offerid=102910.10000002&type=4&subid=0",
-                     img_url: "http://lsh.flower.com/img/lsh/88x31-01.gif",
-                     img_alt: "Flower.com",
-                     tracking_img: "http://ad.linksynergy.com/fs-bin/show?id=vzTM3hghpIE&bids=102910.10000002&type=4&subid=0",
-                     percentage: 10)
+    Merchant.create!(name: "Buy.com",
+                     link: "http://affiliate.buy.com/fs-bin/click?id=vzTM3hghpIE&offerid=272843.10000244&type=4&subid=0",
+                     img_url: "http://ak.buy.com/buy_assets/affiliate/01/88x31_buylogo_black.gif",
+                     img_alt: "Buy.com",
+                     tracking_img: "http://ad.linksynergy.com/fs-bin/show?id=vzTM3hghpIE&bids=272843.10000244&type=4&subid=0",
+                     percentage: 0.5)
 
-    100.times do |n|
+    50.times do |n|
       Charity.create!(name: "Sample Charity #{n+1}",
                       url: "http://sample-charity-#{n+1}.org",
                       amazon_tracking_id: "esd-#{n+1}-20")

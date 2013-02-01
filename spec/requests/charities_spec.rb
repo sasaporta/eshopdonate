@@ -60,15 +60,30 @@ describe "Charities" do
       fill_in "charity_name", with: "Sample Charity 1a"
       fill_in "charity_url", with: "http://sample-charity-1a.org"
       fill_in "charity_amazon_tracking_id", with: "esd-sc1a-20"
+      fill_in "charity_shortname", with: "sc1a"
       click_button "Save"
       edit_first_charity
       page.should have_xpath("//input[@value='Sample Charity 1a']")
       page.should have_xpath("//input[@value='http://sample-charity-1a.org']")
       page.should have_xpath("//input[@value='esd-sc1a-20']")
+      page.should have_xpath("//input[@value='sc1a']")
     end
 
     it "deletes a charity" do
       expect { find(:xpath, "//a[contains(@data-confirm, 'Delete Sample Charity 1')]").click }.to change(Charity, :count).by(-1)
+    end
+  end
+
+  describe "Shortname routing" do
+    it "selects a charity by its shortname" do
+      visit "#{charities_path}/#{Charity.first.shortname}"
+      page.should have_content("Sample Charity 1 will receive a donation")
+    end
+
+    it "redirects to 404 with an invalid shortname" do
+      lambda {
+        visit "#{charities_path}/foo"
+      }.should raise_error(ActionController::RoutingError) 
     end
   end
 end

@@ -1,12 +1,10 @@
 EShopDonate::Application.routes.draw do
   devise_for :users
 
-  get '/charities/:shortname' => 'charities#setbyshortname'
-
   resources :charities do
     member do
       get 'set'
-      get 'setbyshortname'
+      get 'set-by-shortname'
     end
   end
 

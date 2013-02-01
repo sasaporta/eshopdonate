@@ -2,6 +2,8 @@ FactoryGirl.define do
   factory :charity do
     sequence(:name)  { |n| "Sample Charity #{n}" }
     sequence(:url) { |n| "http://sample_charity_#{n}.com" }
+    sequence(:amazon_tracking_id) { |n| "esd-sc#{n}-20" }
+    sequence(:shortname) { |n| "sc#{n}" }
   end
 
   factory :merchant do

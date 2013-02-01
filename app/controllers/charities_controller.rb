@@ -1,5 +1,5 @@
 class CharitiesController < ApplicationController
-  before_filter :signed_in_user, except: [:index, :set]
+  before_filter :signed_in_user, except: [:index, :set, :setbyshortname]
 
   def index
     @charities = Charity.paginate(page: params[:page])
@@ -7,6 +7,13 @@ class CharitiesController < ApplicationController
 
   def set
     session[:charity] = params[:id]
+    redirect_to merchants_path
+  end
+
+  def setbyshortname
+    @charity = Charity.find_by_shortname(params[:shortname])
+    raise ActionController::RoutingError.new('Not Found') if @charity.nil?
+    session[:charity] = @charity.id
     redirect_to merchants_path
   end
 
